@@ -6,5 +6,7 @@ class PartyAnimal:
 		print "So far",self.x
 
 an = PartyAnimal()
-an.party()
-an.party()
+print "an",an.party(),an.party()
+
+bn = PartyAnimal()
+print "bn",bn.party()
