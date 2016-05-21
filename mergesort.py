@@ -1,4 +1,8 @@
-a = [45,67,33,89,65,43,12,66,234,63453,23,64,77]  
+print 'Welcome to Shreyas Gune : MERGESORTER'
+z='Please enter the list of items in the following format : [val1,val2,val3 ..] : '
+lst = raw_input(z) 
+a = eval(lst) 
+#a = [45,67,33,89,65,43,12,66,234,63453,23,64,77]  
 print 'Before sorting',a 
 def domerge(b):
 	hi = len(b) 
