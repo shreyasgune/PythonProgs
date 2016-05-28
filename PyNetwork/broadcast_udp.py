@@ -6,7 +6,6 @@ import sys, socket
 
 s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) 
 s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST,1) 
-
 '''otes
 value = s.getsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, value)
@@ -32,7 +31,10 @@ MAX = 65535
 PORT= 1060
 
 if sys.argv[1] == 'server':
+	s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1) #this is so that I can open multiple connections at the same port. This took some troubleshooting.
+
 	s.bind(('', PORT)) 
+	s.setsockopt(socket.SOL_SOCKET,socket.SO_BROADCAST,1) 
 	print 'Listening for broadcast at', s.getsockname() 
 	while True:
 		data, address = s.recvfrom(MAX) 
